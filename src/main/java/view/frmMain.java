@@ -4,14 +4,23 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
- * @author VIctor
+ * @author victorhuertas
  */
 public class frmMain extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmMain
+     * Creates new form frmPrincipal
      */
     public frmMain() {
         initComponents();
@@ -26,21 +35,71 @@ public class frmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblEscritorio = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        opcMetodoSimple = new javax.swing.JMenu();
+        opcDosFaces = new javax.swing.JMenuItem();
+        opcMetodoGrafico = new javax.swing.JMenu();
+        opcGrafico = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblEscritorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/background.gif"))); // NOI18N
+        lblEscritorio.setText("background");
+
+        opcMetodoSimple.setForeground(new java.awt.Color(0, 0, 0));
+        opcMetodoSimple.setText("Metodo Simplex");
+
+        opcDosFaces.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opcDosFaces.setText("Dos Faces");
+        opcDosFaces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcDosFacesActionPerformed(evt);
+            }
+        });
+        opcMetodoSimple.add(opcDosFaces);
+
+        jMenuBar1.add(opcMetodoSimple);
+
+        opcMetodoGrafico.setForeground(new java.awt.Color(0, 0, 0));
+        opcMetodoGrafico.setText("Metodo Grafico");
+
+        opcGrafico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opcGrafico.setText("Empezar metodo grafico");
+        opcGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcGraficoActionPerformed(evt);
+            }
+        });
+        opcMetodoGrafico.add(opcGrafico);
+
+        jMenuBar1.add(opcMetodoGrafico);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(lblEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(lblEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
+
+        lblEscritorio.getAccessibleContext().setAccessibleName("background");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void opcDosFacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcDosFacesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opcDosFacesActionPerformed
+
+    private void opcGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcGraficoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opcGraficoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +127,9 @@ public class frmMain extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +140,80 @@ public class frmMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblEscritorio;
+    private javax.swing.JMenuItem opcDosFaces;
+    private javax.swing.JMenuItem opcGrafico;
+    private javax.swing.JMenu opcMetodoGrafico;
+    private javax.swing.JMenu opcMetodoSimple;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JLabel getLblEscritorio() {
+        return lblEscritorio;
+    }
+
+    public void setLblEscritorio(JLabel lblEscritorio) {
+        this.lblEscritorio = lblEscritorio;
+    }
+
+    public JMenuItem getOpcDosFaces() {
+        return opcDosFaces;
+    }
+
+    public void setOpcDosFaces(JMenuItem opcDosFaces) {
+        this.opcDosFaces = opcDosFaces;
+    }
+
+    public JMenuItem getOpcGrafico() {
+        return opcGrafico;
+    }
+
+    public void setOpcGrafico(JMenuItem opcGrafico) {
+        this.opcGrafico = opcGrafico;
+    }
+
+    public JMenu getOpcMetodoGrafico() {
+        return opcMetodoGrafico;
+    }
+
+    public void setOpcMetodoGrafico(JMenu opcMetodoGrafico) {
+        this.opcMetodoGrafico = opcMetodoGrafico;
+    }
+
+    public JMenu getOpcMetodoSimple() {
+        return opcMetodoSimple;
+    }
+
+    public void setOpcMetodoSimple(JMenu opcMetodoSimple) {
+        this.opcMetodoSimple = opcMetodoSimple;
+    }
+
+    
+
+    
+
 }
