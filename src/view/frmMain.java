@@ -35,7 +35,7 @@ public class frmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblEscritorio = new javax.swing.JLabel();
+        lblBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         opcMetodoSimple = new javax.swing.JMenu();
         opcTasasNominales = new javax.swing.JMenuItem();
@@ -48,8 +48,8 @@ public class frmMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblEscritorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/background.gif"))); // NOI18N
-        lblEscritorio.setText("background");
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/background.gif"))); // NOI18N
+        lblBackground.setAlignmentY(0.0F);
 
         opcMetodoSimple.setForeground(new java.awt.Color(0, 0, 0));
         opcMetodoSimple.setText("Conversion de Tasas");
@@ -116,11 +116,11 @@ public class frmMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblBackground)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+            .addComponent(lblBackground)
         );
 
         pack();
@@ -190,7 +190,7 @@ public class frmMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lblEscritorio;
+    private javax.swing.JLabel lblBackground;
     private javax.swing.JMenuItem opcAmortizacion;
     private javax.swing.JMenuItem opcCapitalizacion;
     private javax.swing.JMenuItem opcEfectivaNominal;
@@ -209,12 +209,12 @@ public class frmMain extends javax.swing.JFrame {
         this.jMenuBar1 = jMenuBar1;
     }
 
-    public JLabel getLblEscritorio() {
-        return lblEscritorio;
+    public JLabel getLblBackground() {
+        return lblBackground;
     }
 
-    public void setLblEscritorio(JLabel lblEscritorio) {
-        this.lblEscritorio = lblEscritorio;
+    public void setLblBackground(JLabel lblBackground) {
+        this.lblBackground = lblBackground;
     }
 
     public JMenuItem getOpcAmortizacion() {

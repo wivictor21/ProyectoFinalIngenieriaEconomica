@@ -8,8 +8,8 @@ package model;
  *
  * @author victorhuertas
  */
-public class nominalEfectiva {
-/*
+public class NominalEfectiva {
+
     private double tasa;
     private String periodoN;
     private double periodoNN;
@@ -101,6 +101,6 @@ public class nominalEfectiva {
         tasa = Decimal(tasa) * 100;
         document.getElementById("tasaE").innerHTML = tasa + "%";
         $("#tasaE").val(tasa);
-    }*/
+    }
 
 }
