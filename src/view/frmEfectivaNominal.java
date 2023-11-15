@@ -36,72 +36,91 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtNumeroEnvio = new javax.swing.JTextField();
-        txtOrigen = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtDestino = new javax.swing.JTextField();
+        txtInteres = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtDescripcion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtDestinatario = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
+        lblResultado = new javax.swing.JLabel();
+        cmbTasaEfectiva = new javax.swing.JComboBox<>();
+        cmbTasaNominal = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jcbAnticipadoEfectivo = new javax.swing.JCheckBox();
+        jcbAnticipadoNominal = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cmbTipoEnvio = new javax.swing.JComboBox<>();
-        btnGuardarEnvio = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(46, 96, 146));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setText("Número de Envio:");
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Porcentaje de interes:");
 
-        txtNumeroEnvio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtNumeroEnvio.addActionListener(new java.awt.event.ActionListener() {
+        txtInteres.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtInteres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroEnvioActionPerformed(evt);
-            }
-        });
-
-        txtOrigen.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtOrigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrigenActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 3, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Origen:");
-
-        txtDestino.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtDestino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDestinoActionPerformed(evt);
+                txtInteresActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Destino:");
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Tasa Nominal:");
 
-        txtDescripcion.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Tasa Efectiva:");
+
+        btnCalcular.setBackground(new java.awt.Color(255, 255, 255));
+        btnCalcular.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
+                btnCalcularActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Descripción:");
+        lblResultado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblResultado.setForeground(new java.awt.Color(0, 0, 0));
+        lblResultado.setText("Resultado:");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setText("Destinatario:");
-
-        txtDestinatario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        txtDestinatario.addActionListener(new java.awt.event.ActionListener() {
+        cmbTasaEfectiva.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cmbTasaEfectiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
+        cmbTasaEfectiva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDestinatarioActionPerformed(evt);
+                cmbTasaEfectivaActionPerformed(evt);
+            }
+        });
+
+        cmbTasaNominal.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cmbTasaNominal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
+        cmbTasaNominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTasaNominalActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("%");
+
+        jcbAnticipadoEfectivo.setBackground(new java.awt.Color(255, 255, 255));
+        jcbAnticipadoEfectivo.setForeground(new java.awt.Color(0, 0, 0));
+        jcbAnticipadoEfectivo.setText("Anticipado");
+        jcbAnticipadoEfectivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAnticipadoEfectivoActionPerformed(evt);
+            }
+        });
+
+        jcbAnticipadoNominal.setBackground(new java.awt.Color(255, 255, 255));
+        jcbAnticipadoNominal.setForeground(new java.awt.Color(0, 0, 0));
+        jcbAnticipadoNominal.setText("Anticipado");
+        jcbAnticipadoNominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAnticipadoNominalActionPerformed(evt);
             }
         });
 
@@ -110,29 +129,40 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNumeroEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
+                        .addGap(94, 94, 94)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cmbTasaNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbAnticipadoNominal, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtInteres)
+                                    .addComponent(cmbTasaEfectiva, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jcbAnticipadoEfectivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(btnCalcular))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(lblResultado)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,48 +170,39 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNumeroEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cmbTasaEfectiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAnticipadoEfectivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbTasaNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAnticipadoNominal))
+                .addGap(18, 18, 18)
+                .addComponent(btnCalcular)
+                .addGap(18, 18, 18)
+                .addComponent(lblResultado)
+                .addGap(30, 30, 30))
         );
 
         jLabel1.setFont(new java.awt.Font("Parchment", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Registro Envio");
+        jLabel1.setText("Efectiva Nominal");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Tipo de Envio:");
+        jLabel2.setText("Calculadora de Efectiva a Nominal:");
 
-        cmbTipoEnvio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        cmbTipoEnvio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aereo", "Terrestre" }));
-        cmbTipoEnvio.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrar.setBackground(new java.awt.Color(255, 51, 51));
+        btnCerrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCerrar.setText("X");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTipoEnvioActionPerformed(evt);
-            }
-        });
-
-        btnGuardarEnvio.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardarEnvio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnGuardarEnvio.setText("Guardar");
-        btnGuardarEnvio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarEnvioActionPerformed(evt);
+                btnCerrarActionPerformed(evt);
             }
         });
 
@@ -189,36 +210,32 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCerrar))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(61, 61, 61)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbTipoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnGuardarEnvio, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jLabel2)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel1)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbTipoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCerrar)
                 .addGap(18, 18, 18)
-                .addComponent(btnGuardarEnvio)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,68 +252,84 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTipoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoEnvioActionPerformed
+    private void cmbTasaEfectivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaEfectivaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTipoEnvioActionPerformed
+    }//GEN-LAST:event_cmbTasaEfectivaActionPerformed
 
-    private void txtNumeroEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroEnvioActionPerformed
+    private void txtInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInteresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroEnvioActionPerformed
+    }//GEN-LAST:event_txtInteresActionPerformed
 
-    private void txtOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenActionPerformed
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrigenActionPerformed
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
-    private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinoActionPerformed
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
+    private void cmbTasaNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaNominalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
+    }//GEN-LAST:event_cmbTasaNominalActionPerformed
 
-    private void btnGuardarEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEnvioActionPerformed
+    private void jcbAnticipadoEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoEfectivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarEnvioActionPerformed
+    }//GEN-LAST:event_jcbAnticipadoEfectivoActionPerformed
 
-    private void txtDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinatarioActionPerformed
+    private void jcbAnticipadoNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoNominalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinatarioActionPerformed
+    }//GEN-LAST:event_jcbAnticipadoNominalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardarEnvio;
-    private javax.swing.JComboBox<String> cmbTipoEnvio;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JComboBox<String> cmbTasaEfectiva;
+    private javax.swing.JComboBox<String> cmbTasaNominal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtDestinatario;
-    private javax.swing.JTextField txtDestino;
-    private javax.swing.JTextField txtNumeroEnvio;
-    private javax.swing.JTextField txtOrigen;
+    private javax.swing.JCheckBox jcbAnticipadoEfectivo;
+    private javax.swing.JCheckBox jcbAnticipadoNominal;
+    private javax.swing.JLabel lblResultado;
+    private javax.swing.JTextField txtInteres;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBtnGuardarEnvio() {
-        return btnGuardarEnvio;
+    public JButton getBtnCalcular() {
+        return btnCalcular;
     }
 
-    public void setBtnGuardarEnvio(JButton btnGuardarEnvio) {
-        this.btnGuardarEnvio = btnGuardarEnvio;
+    public void setBtnCalcular(JButton btnCalcular) {
+        this.btnCalcular = btnCalcular;
     }
 
-    public JComboBox<String> getCmbTipoEnvio() {
-        return cmbTipoEnvio;
+    public JButton getBtnCerrar() {
+        return btnCerrar;
     }
 
-    public void setCmbTipoEnvio(JComboBox<String> cmbTipoEnvio) {
-        this.cmbTipoEnvio = cmbTipoEnvio;
+    public void setBtnCerrar(JButton btnCerrar) {
+        this.btnCerrar = btnCerrar;
+    }
+
+    public JComboBox<String> getCmbTasaEfectiva() {
+        return cmbTasaNominal;
+    }
+
+    public void setCmbTasaEfectiva(JComboBox<String> cmbTasaEfectiva) {
+        this.cmbTasaNominal = cmbTasaEfectiva;
+    }
+
+    public JComboBox<String> getCmbTasaNominal() {
+        return cmbTasaEfectiva;
+    }
+
+    public void setCmbTasaNominal(JComboBox<String> cmbTasaNominal) {
+        this.cmbTasaEfectiva = cmbTasaNominal;
     }
 
     public JLabel getjLabel1() {
@@ -323,14 +356,6 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         this.jLabel3 = jLabel3;
     }
 
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
     public JLabel getjLabel5() {
         return jLabel5;
     }
@@ -345,14 +370,6 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
 
     public void setjLabel6(JLabel jLabel6) {
         this.jLabel6 = jLabel6;
-    }
-
-    public JLabel getjLabel7() {
-        return jLabel7;
-    }
-
-    public void setjLabel7(JLabel jLabel7) {
-        this.jLabel7 = jLabel7;
     }
 
     public JPanel getjPanel1() {
@@ -371,44 +388,22 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         this.jPanel3 = jPanel3;
     }
 
-    public JTextField getTxtDescripcion() {
-        return txtDescripcion;
+    public JLabel getLblResultado() {
+        return lblResultado;
     }
 
-    public void setTxtDescripcion(JTextField txtDescripcion) {
-        this.txtDescripcion = txtDescripcion;
+    public void setLblResultado(JLabel lblResultado) {
+        this.lblResultado = lblResultado;
     }
 
-    public JTextField getTxtDestinatario() {
-        return txtDestinatario;
+    public JTextField getTxtInteres() {
+        return txtInteres;
     }
 
-    public void setTxtDestinatario(JTextField txtDestinatario) {
-        this.txtDestinatario = txtDestinatario;
+    public void setTxtInteres(JTextField txtInteres) {
+        this.txtInteres = txtInteres;
     }
 
-    public JTextField getTxtDestino() {
-        return txtDestino;
-    }
-
-    public void setTxtDestino(JTextField txtDestino) {
-        this.txtDestino = txtDestino;
-    }
-
-    public JTextField getTxtNumeroEnvio() {
-        return txtNumeroEnvio;
-    }
-
-    public void setTxtNumeroEnvio(JTextField txtNumeroEnvio) {
-        this.txtNumeroEnvio = txtNumeroEnvio;
-    }
-
-    public JTextField getTxtOrigen() {
-        return txtOrigen;
-    }
-
-    public void setTxtOrigen(JTextField txtOrigen) {
-        this.txtOrigen = txtOrigen;
-    }
+    
 
 }

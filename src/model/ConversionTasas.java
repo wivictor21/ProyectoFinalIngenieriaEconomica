@@ -8,12 +8,35 @@ package model;
  *
  * @author victorhuertas
  */
-public class NominalEfectiva {
+public class ConversionTasas {
+    private String Interes;
+    
+    public ConversionTasas(String Interes) {
+        this.Interes = Interes;
+    }
+    public ConversionTasas() {
+        this.Interes = "";
+    }
 
+    public String getInteres() {
+        return Interes;
+    }
+
+    public void setInteres(String Interes) {
+        this.Interes = Interes;
+    }
+}
+
+
+
+
+/*
     private double tasa;
     private String periodoN;
     private double periodoNN;
     private String periodoE;
+    
+    
 
     public void getData() {
 
@@ -85,7 +108,7 @@ public class NominalEfectiva {
         return tasa;
     }
 
-    public double verificar_anticipada2() {
+    public double verificarAnticipada2() {
         if (document.getElementById("efectivaA").checked) {
             tasa = tasa / (1 + tasa);
         }
@@ -93,7 +116,8 @@ public class NominalEfectiva {
     }
 
     public double Decimal() {
-        return parseFloat(tasa).toFixed(8);
+        return Double.parseDouble(tasa).toFixed(8);
+        
     }
 
     public void convertirTasa() {
@@ -101,6 +125,4 @@ public class NominalEfectiva {
         tasa = Decimal(tasa) * 100;
         document.getElementById("tasaE").innerHTML = tasa + "%";
         $("#tasaE").val(tasa);
-    }
-
-}
+    }*/

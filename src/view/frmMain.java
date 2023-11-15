@@ -52,7 +52,7 @@ public class frmMain extends javax.swing.JFrame {
         lblBackground.setAlignmentY(0.0F);
 
         opcMetodoSimple.setForeground(new java.awt.Color(0, 0, 0));
-        opcMetodoSimple.setText("Conversion de Tasas");
+        opcMetodoSimple.setText("Conversión de Tasas");
 
         opcTasasNominales.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opcTasasNominales.setText("Entre Tasas Nominales");
@@ -81,7 +81,7 @@ public class frmMain extends javax.swing.JFrame {
         });
         opcMetodoSimple.add(opcNominalEfectiva);
 
-        opcEfectivaNominal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, 0));
+        opcEfectivaNominal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opcEfectivaNominal.setText("De Efectiva a Nominal");
         opcMetodoSimple.add(opcEfectivaNominal);
 
