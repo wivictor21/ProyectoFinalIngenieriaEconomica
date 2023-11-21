@@ -16,12 +16,12 @@ import javax.swing.JTextField;
  *
  * @author VIctor
  */
-public class frmEfectivaNominal extends javax.swing.JInternalFrame {
+public class frmNominalNominal extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form formRegistroEnvio
      */
-    public frmEfectivaNominal() {
+    public frmNominalNominal() {
         initComponents();
     }
 
@@ -35,6 +35,9 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtInteres = new javax.swing.JTextField();
@@ -42,22 +45,36 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
-        cmbTasaEfectiva = new javax.swing.JComboBox<>();
-        cmbTasaNominal = new javax.swing.JComboBox<>();
+        cmbTasaNominal1 = new javax.swing.JComboBox<>();
+        cmbTasaNominal2 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jcbAnticipadoEfectivo = new javax.swing.JCheckBox();
-        jcbAnticipadoNominal = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnCerrar = new javax.swing.JButton();
+        jcbAnticipadoNominal1 = new javax.swing.JCheckBox();
+        jcbAnticipadoNominal2 = new javax.swing.JCheckBox();
 
         jPanel3.setBackground(new java.awt.Color(46, 96, 146));
+
+        jLabel1.setFont(new java.awt.Font("Parchment", 1, 60)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nominal Nominal");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Calculadora de Nominal a Nominal:");
+
+        btnCerrar.setBackground(new java.awt.Color(255, 51, 51));
+        btnCerrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCerrar.setText("X");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Porcentaje de interes:");
+        jLabel3.setText("Porcentaje de Interes:");
 
         txtInteres.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtInteres.addActionListener(new java.awt.event.ActionListener() {
@@ -68,11 +85,11 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Tasa Nominal:");
+        jLabel5.setText("Segunda Tasa Efectiva:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Tasa Efectiva:");
+        jLabel6.setText("Primera Tasa Nominal:");
 
         btnCalcular.setBackground(new java.awt.Color(255, 255, 255));
         btnCalcular.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -87,19 +104,19 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         lblResultado.setForeground(new java.awt.Color(0, 0, 0));
         lblResultado.setText("Resultado:");
 
-        cmbTasaEfectiva.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        cmbTasaEfectiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
-        cmbTasaEfectiva.addActionListener(new java.awt.event.ActionListener() {
+        cmbTasaNominal1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cmbTasaNominal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
+        cmbTasaNominal1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTasaEfectivaActionPerformed(evt);
+                cmbTasaNominal1ActionPerformed(evt);
             }
         });
 
-        cmbTasaNominal.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        cmbTasaNominal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
-        cmbTasaNominal.addActionListener(new java.awt.event.ActionListener() {
+        cmbTasaNominal2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cmbTasaNominal2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Bimestral", "Trimestral", "Cuatrimestral", "Semestral", "Anual" }));
+        cmbTasaNominal2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTasaNominalActionPerformed(evt);
+                cmbTasaNominal2ActionPerformed(evt);
             }
         });
 
@@ -107,21 +124,21 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("%");
 
-        jcbAnticipadoEfectivo.setBackground(new java.awt.Color(255, 255, 255));
-        jcbAnticipadoEfectivo.setForeground(new java.awt.Color(0, 0, 0));
-        jcbAnticipadoEfectivo.setText("Anticipado");
-        jcbAnticipadoEfectivo.addActionListener(new java.awt.event.ActionListener() {
+        jcbAnticipadoNominal1.setBackground(new java.awt.Color(255, 255, 255));
+        jcbAnticipadoNominal1.setForeground(new java.awt.Color(0, 0, 0));
+        jcbAnticipadoNominal1.setText("Anticipado");
+        jcbAnticipadoNominal1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbAnticipadoEfectivoActionPerformed(evt);
+                jcbAnticipadoNominal1ActionPerformed(evt);
             }
         });
 
-        jcbAnticipadoNominal.setBackground(new java.awt.Color(255, 255, 255));
-        jcbAnticipadoNominal.setForeground(new java.awt.Color(0, 0, 0));
-        jcbAnticipadoNominal.setText("Anticipado");
-        jcbAnticipadoNominal.addActionListener(new java.awt.event.ActionListener() {
+        jcbAnticipadoNominal2.setBackground(new java.awt.Color(255, 255, 255));
+        jcbAnticipadoNominal2.setForeground(new java.awt.Color(0, 0, 0));
+        jcbAnticipadoNominal2.setText("Anticipado");
+        jcbAnticipadoNominal2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbAnticipadoNominalActionPerformed(evt);
+                jcbAnticipadoNominal2ActionPerformed(evt);
             }
         });
 
@@ -144,19 +161,19 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cmbTasaNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbTasaNominal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbAnticipadoNominal, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .addComponent(jcbAnticipadoNominal2, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtInteres)
-                                    .addComponent(cmbTasaEfectiva, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cmbTasaNominal1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jcbAnticipadoEfectivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jcbAnticipadoNominal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(btnCalcular))
@@ -176,36 +193,19 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(cmbTasaEfectiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbAnticipadoEfectivo))
+                    .addComponent(cmbTasaNominal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAnticipadoNominal1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbTasaNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbAnticipadoNominal))
+                    .addComponent(cmbTasaNominal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAnticipadoNominal2))
                 .addGap(18, 18, 18)
                 .addComponent(btnCalcular)
                 .addGap(18, 18, 18)
                 .addComponent(lblResultado)
                 .addGap(30, 30, 30))
         );
-
-        jLabel1.setFont(new java.awt.Font("Parchment", 1, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Efectiva Nominal");
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Calculadora de Efectiva a Nominal:");
-
-        btnCerrar.setBackground(new java.awt.Color(255, 51, 51));
-        btnCerrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnCerrar.setText("X");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -219,12 +219,12 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel1)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,9 +253,9 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTasaEfectivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaEfectivaActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTasaEfectivaActionPerformed
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void txtInteresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInteresActionPerformed
         // TODO add your handling code here:
@@ -265,28 +265,28 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCalcularActionPerformed
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+    private void cmbTasaNominal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaNominal1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCerrarActionPerformed
+    }//GEN-LAST:event_cmbTasaNominal1ActionPerformed
 
-    private void cmbTasaNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaNominalActionPerformed
+    private void cmbTasaNominal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTasaNominal2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTasaNominalActionPerformed
+    }//GEN-LAST:event_cmbTasaNominal2ActionPerformed
 
-    private void jcbAnticipadoEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoEfectivoActionPerformed
+    private void jcbAnticipadoNominal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoNominal1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbAnticipadoEfectivoActionPerformed
+    }//GEN-LAST:event_jcbAnticipadoNominal1ActionPerformed
 
-    private void jcbAnticipadoNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoNominalActionPerformed
+    private void jcbAnticipadoNominal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAnticipadoNominal2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbAnticipadoNominalActionPerformed
+    }//GEN-LAST:event_jcbAnticipadoNominal2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JComboBox<String> cmbTasaEfectiva;
-    private javax.swing.JComboBox<String> cmbTasaNominal;
+    private javax.swing.JComboBox<String> cmbTasaNominal1;
+    private javax.swing.JComboBox<String> cmbTasaNominal2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -295,8 +295,8 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JCheckBox jcbAnticipadoEfectivo;
-    private javax.swing.JCheckBox jcbAnticipadoNominal;
+    private javax.swing.JCheckBox jcbAnticipadoNominal1;
+    private javax.swing.JCheckBox jcbAnticipadoNominal2;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JTextField txtInteres;
     // End of variables declaration//GEN-END:variables
@@ -317,20 +317,20 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         this.btnCerrar = btnCerrar;
     }
 
-    public JComboBox<String> getCmbTasaEfectiva() {
-        return cmbTasaEfectiva;
+    public JComboBox<String> getCmbTasaNominal1() {
+        return cmbTasaNominal1;
     }
 
-    public void setCmbTasaEfectiva(JComboBox<String> cmbTasaEfectiva) {
-        this.cmbTasaEfectiva = cmbTasaEfectiva;
+    public void setCmbTasaNominal1(JComboBox<String> cmbTasaNominal1) {
+        this.cmbTasaNominal1 = cmbTasaNominal1;
     }
 
-    public JComboBox<String> getCmbTasaNominal() {
-        return cmbTasaNominal;
+    public JComboBox<String> getCmbTasaNominal2() {
+        return cmbTasaNominal2;
     }
 
-    public void setCmbTasaNominal(JComboBox<String> cmbTasaNominal) {
-        this.cmbTasaNominal = cmbTasaNominal;
+    public void setCmbTasaNominal2(JComboBox<String> cmbTasaNominal2) {
+        this.cmbTasaNominal2 = cmbTasaNominal2;
     }
 
     public JLabel getjLabel1() {
@@ -397,20 +397,20 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         this.jPanel3 = jPanel3;
     }
 
-    public JCheckBox getJcbAnticipadoEfectivo() {
-        return jcbAnticipadoEfectivo;
+    public JCheckBox getJcbAnticipadoNominal1() {
+        return jcbAnticipadoNominal1;
     }
 
-    public void setJcbAnticipadoEfectivo(JCheckBox jcbAnticipadoEfectivo) {
-        this.jcbAnticipadoEfectivo = jcbAnticipadoEfectivo;
+    public void setJcbAnticipadoNominal1(JCheckBox jcbAnticipadoNominal1) {
+        this.jcbAnticipadoNominal1 = jcbAnticipadoNominal1;
     }
 
-    public JCheckBox getJcbAnticipadoNominal() {
-        return jcbAnticipadoNominal;
+    public JCheckBox getJcbAnticipadoNominal2() {
+        return jcbAnticipadoNominal2;
     }
 
-    public void setJcbAnticipadoNominal(JCheckBox jcbAnticipadoNominal) {
-        this.jcbAnticipadoNominal = jcbAnticipadoNominal;
+    public void setJcbAnticipadoNominal2(JCheckBox jcbAnticipadoNominal2) {
+        this.jcbAnticipadoNominal2 = jcbAnticipadoNominal2;
     }
 
     public JLabel getLblResultado() {
@@ -429,6 +429,7 @@ public class frmEfectivaNominal extends javax.swing.JInternalFrame {
         this.txtInteres = txtInteres;
     }
 
-       
+    
+    
 
 }

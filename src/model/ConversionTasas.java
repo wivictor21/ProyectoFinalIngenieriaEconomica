@@ -9,120 +9,177 @@ package model;
  * @author victorhuertas
  */
 public class ConversionTasas {
-    private String Interes;
-    
-    public ConversionTasas(String Interes) {
-        this.Interes = Interes;
-    }
-    public ConversionTasas() {
-        this.Interes = "";
-    }
 
-    public String getInteres() {
-        return Interes;
-    }
-
-    public void setInteres(String Interes) {
-        this.Interes = Interes;
-    }
-}
-
-
-
-
-/*
     private double tasa;
-    private String periodoN;
-    private double periodoNN;
-    private String periodoE;
-    
-    
+    private int periodo;
 
-    public void getData() {
-
+    public ConversionTasas(double tasa, int periodo) {
+        this.tasa = tasa;
+        this.periodo = periodo;
     }
 
-    public double nominalEfectiva() {
-        switch (periodoN) {
-            case "M":
-                periodoNN = 12;
+    public ConversionTasas() {
+        this.tasa = 0;
+        this.periodo = 0;
+    }
+
+    public double getTasa() {
+        return tasa;
+    }
+
+    public void setTasa(double tasa) {
+        this.tasa = tasa;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
+
+    public void extraerPeriodo1(int periodoIndice) {
+        switch (periodoIndice) {
+            case 0:
+                periodo = 12;
                 tasa = tasa / 12;
                 break;
-            case "B":
-                periodoNN = 6;
+            case 1:
+                periodo = 6;
                 tasa = tasa / 6;
                 break;
-            case "T":
-                periodoNN = 4;
+            case 2:
+                periodo = 4;
                 tasa = tasa / 4;
                 break;
-            case "C":
-                periodoNN = 3;
+            case 3:
+                periodo = 3;
                 tasa = tasa / 3;
                 break;
-            case "S":
-                periodoNN = 2;
+            case 4:
+                periodo = 2;
                 tasa = tasa / 2;
                 break;
-            case "A":
-                periodoNN = 1;
+            case 5:
+                periodo = 1;
                 break;
             default:
-                periodoNN = 1;
+                periodo = 1;
                 break;
         }
-        return tasa;
     }
-
-    public double verificarAnticipada1() {
-        if (document.getElementById("nominalA").checked) {
-            tasa = tasa / (1 - tasa);
-        }
-        return tasa;
-    }
-
-    public double equivalenciaTasas() {
-        switch (periodoE) {
-            case "M":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1 / 12) - 1;
+    public void extraerPeriodo2(int periodoIndice) {
+        switch (periodoIndice) {
+            case 0:
+                periodo = 12;
                 break;
-            case "B":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1 / 6) - 1;
+            case 1:
+                periodo = 6;
                 break;
-            case "T":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1 / 4) - 1;
+            case 2:
+                periodo = 4;
                 break;
-            case "C":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1 / 3) - 1;
+            case 3:
+                periodo = 3;
                 break;
-            case "S":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1 / 2) - 1;
+            case 4:
+                periodo = 2;
                 break;
-            case "A":
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1) - 1;
+            case 5:
+                periodo = 1;
                 break;
             default:
-                tasa = Math.pow(Math.pow(1 + tasa, periodoNN), 1) - 1;
+                periodo = 1;
                 break;
         }
-        return tasa;
     }
 
-    public double verificarAnticipada2() {
-        if (document.getElementById("efectivaA").checked) {
-            tasa = tasa / (1 + tasa);
+    public void verificarAnticipada1() {
+        tasa = tasa / (1 - tasa);
+    }
+    
+    public void verificarAnticipada2() {
+        tasa = tasa / (1 + tasa);
+    }
+
+    public void equivalenciaTasasNominalEfectiva(int periodoIndice) {
+        switch (periodoIndice) {
+            case 0:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 12.0) - 1;
+                break;
+            case 1:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 6.0) - 1;
+                break;
+            case 2:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 4.0) - 1;
+                break;
+            case 3:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 3.0) - 1;
+                break;
+            case 4:
+                System.out.println("Antes\n Tasa: " + tasa + "\nPeriodo: " + periodo);
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 2.0) - 1;
+                System.out.println("Despues\n Tasa: " + tasa + "\nPeriodo: " + periodo);
+                break;
+            case 5:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
+                break;
+            default:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
+                break;
         }
-        return tasa;
+    }
+    
+    public void equivalenciaTasasEfectivaNominal(int periodoIndice) {
+        switch (periodoIndice) {
+            case 0:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 12.0) - 1;
+                break;
+            case 1:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 6.0) - 1;
+                break;
+            case 2:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 4.0) - 1;
+                break;
+            case 3:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 3.0) - 1;
+                break;
+            case 4:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 2.0) - 1;
+                break;
+            case 5:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
+                break;
+            default:
+                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
+                break;
+        }
+    }
+    
+    public void multiplicador(int periodoIndice){
+        switch (periodoIndice) {
+            case 0:
+                tasa = tasa * 12;
+                break;
+            case 1:
+                tasa = tasa * 6;
+                break;
+            case 2:
+                tasa = tasa * 4;
+                break;
+            case 3:
+                tasa = tasa * 3;
+                break;
+            case 4:
+                tasa = tasa * 2;
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
     }
 
-    public double Decimal() {
-        return Double.parseDouble(tasa).toFixed(8);
-        
-    }
-
-    public void convertirTasa() {
-        getData();
-        tasa = Decimal(tasa) * 100;
-        document.getElementById("tasaE").innerHTML = tasa + "%";
-        $("#tasaE").val(tasa);
-    }*/
+    
+}

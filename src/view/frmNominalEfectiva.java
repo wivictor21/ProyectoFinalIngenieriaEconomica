@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -317,19 +318,19 @@ public class frmNominalEfectiva extends javax.swing.JInternalFrame {
     }
 
     public JComboBox<String> getCmbTasaEfectiva() {
-        return cmbTasaNominal;
-    }
-
-    public void setCmbTasaEfectiva(JComboBox<String> cmbTasaEfectiva) {
-        this.cmbTasaNominal = cmbTasaEfectiva;
-    }
-
-    public JComboBox<String> getCmbTasaNominal() {
         return cmbTasaEfectiva;
     }
 
+    public void setCmbTasaEfectiva(JComboBox<String> cmbTasaEfectiva) {
+        this.cmbTasaEfectiva = cmbTasaEfectiva;
+    }
+
+    public JComboBox<String> getCmbTasaNominal() {
+        return cmbTasaNominal;
+    }
+
     public void setCmbTasaNominal(JComboBox<String> cmbTasaNominal) {
-        this.cmbTasaEfectiva = cmbTasaNominal;
+        this.cmbTasaNominal = cmbTasaNominal;
     }
 
     public JLabel getjLabel1() {
@@ -354,6 +355,14 @@ public class frmNominalEfectiva extends javax.swing.JInternalFrame {
 
     public void setjLabel3(JLabel jLabel3) {
         this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
     }
 
     public JLabel getjLabel5() {
@@ -388,6 +397,22 @@ public class frmNominalEfectiva extends javax.swing.JInternalFrame {
         this.jPanel3 = jPanel3;
     }
 
+    public JCheckBox getJcbAnticipadoEfectivo() {
+        return jcbAnticipadoEfectivo;
+    }
+
+    public void setJcbAnticipadoEfectivo(JCheckBox jcbAnticipadoEfectivo) {
+        this.jcbAnticipadoEfectivo = jcbAnticipadoEfectivo;
+    }
+
+    public JCheckBox getJcbAnticipadoNominal() {
+        return jcbAnticipadoNominal;
+    }
+
+    public void setJcbAnticipadoNominal(JCheckBox jcbAnticipadoNominal) {
+        this.jcbAnticipadoNominal = jcbAnticipadoNominal;
+    }
+
     public JLabel getLblResultado() {
         return lblResultado;
     }
@@ -404,6 +429,7 @@ public class frmNominalEfectiva extends javax.swing.JInternalFrame {
         this.txtInteres = txtInteres;
     }
 
+    
     
 
 }

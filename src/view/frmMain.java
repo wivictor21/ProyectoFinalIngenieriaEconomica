@@ -38,10 +38,10 @@ public class frmMain extends javax.swing.JFrame {
         lblBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         opcMetodoSimple = new javax.swing.JMenu();
-        opcTasasNominales = new javax.swing.JMenuItem();
-        opcTasasEfectivas = new javax.swing.JMenuItem();
         opcNominalEfectiva = new javax.swing.JMenuItem();
         opcEfectivaNominal = new javax.swing.JMenuItem();
+        opcEfectivaEfectiva = new javax.swing.JMenuItem();
+        opcNominalNominal = new javax.swing.JMenuItem();
         opcMetodoGrafico = new javax.swing.JMenu();
         opcAmortizacion = new javax.swing.JMenuItem();
         opcCapitalizacion = new javax.swing.JMenuItem();
@@ -53,24 +53,6 @@ public class frmMain extends javax.swing.JFrame {
 
         opcMetodoSimple.setForeground(new java.awt.Color(0, 0, 0));
         opcMetodoSimple.setText("Conversión de Tasas");
-
-        opcTasasNominales.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        opcTasasNominales.setText("Entre Tasas Nominales");
-        opcTasasNominales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcTasasNominalesActionPerformed(evt);
-            }
-        });
-        opcMetodoSimple.add(opcTasasNominales);
-
-        opcTasasEfectivas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        opcTasasEfectivas.setText("Entre Tasas Efectivas");
-        opcTasasEfectivas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcTasasEfectivasActionPerformed(evt);
-            }
-        });
-        opcMetodoSimple.add(opcTasasEfectivas);
 
         opcNominalEfectiva.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opcNominalEfectiva.setText("De Nominal a Efectiva");
@@ -84,6 +66,24 @@ public class frmMain extends javax.swing.JFrame {
         opcEfectivaNominal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opcEfectivaNominal.setText("De Efectiva a Nominal");
         opcMetodoSimple.add(opcEfectivaNominal);
+
+        opcEfectivaEfectiva.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opcEfectivaEfectiva.setText("De Efectiva a Efectiva");
+        opcEfectivaEfectiva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcEfectivaEfectivaActionPerformed(evt);
+            }
+        });
+        opcMetodoSimple.add(opcEfectivaEfectiva);
+
+        opcNominalNominal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opcNominalNominal.setText("De Nominal a Nominal");
+        opcNominalNominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcNominalNominalActionPerformed(evt);
+            }
+        });
+        opcMetodoSimple.add(opcNominalNominal);
 
         jMenuBar1.add(opcMetodoSimple);
 
@@ -134,13 +134,13 @@ public class frmMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_opcAmortizacionActionPerformed
 
-    private void opcTasasNominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcTasasNominalesActionPerformed
+    private void opcNominalNominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcNominalNominalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_opcTasasNominalesActionPerformed
+    }//GEN-LAST:event_opcNominalNominalActionPerformed
 
-    private void opcTasasEfectivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcTasasEfectivasActionPerformed
+    private void opcEfectivaEfectivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcEfectivaEfectivaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_opcTasasEfectivasActionPerformed
+    }//GEN-LAST:event_opcEfectivaEfectivaActionPerformed
 
     private void opcCapitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcCapitalizacionActionPerformed
         // TODO add your handling code here:
@@ -193,12 +193,12 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackground;
     private javax.swing.JMenuItem opcAmortizacion;
     private javax.swing.JMenuItem opcCapitalizacion;
+    private javax.swing.JMenuItem opcEfectivaEfectiva;
     private javax.swing.JMenuItem opcEfectivaNominal;
     private javax.swing.JMenu opcMetodoGrafico;
     private javax.swing.JMenu opcMetodoSimple;
     private javax.swing.JMenuItem opcNominalEfectiva;
-    private javax.swing.JMenuItem opcTasasEfectivas;
-    private javax.swing.JMenuItem opcTasasNominales;
+    private javax.swing.JMenuItem opcNominalNominal;
     // End of variables declaration//GEN-END:variables
 
     public JMenuBar getjMenuBar1() {
@@ -233,6 +233,14 @@ public class frmMain extends javax.swing.JFrame {
         this.opcCapitalizacion = opcCapitalizacion;
     }
 
+    public JMenuItem getOpcEfectivaEfectiva() {
+        return opcEfectivaEfectiva;
+    }
+
+    public void setOpcEfectivaEfectiva(JMenuItem opcEfectivaEfectiva) {
+        this.opcEfectivaEfectiva = opcEfectivaEfectiva;
+    }
+
     public JMenuItem getOpcEfectivaNominal() {
         return opcEfectivaNominal;
     }
@@ -265,27 +273,12 @@ public class frmMain extends javax.swing.JFrame {
         this.opcNominalEfectiva = opcNominalEfectiva;
     }
 
-    public JMenuItem getOpcTasasEfectivas() {
-        return opcTasasEfectivas;
+    public JMenuItem getOpcNominalNominal() {
+        return opcNominalNominal;
     }
 
-    public void setOpcTasasEfectivas(JMenuItem opcTasasEfectivas) {
-        this.opcTasasEfectivas = opcTasasEfectivas;
-    }
-
-    public JMenuItem getOpcTasasNominales() {
-        return opcTasasNominales;
-    }
-
-    public void setOpcTasasNominales(JMenuItem opcTasasNominales) {
-        this.opcTasasNominales = opcTasasNominales;
-    }
-
-    
-    
-
-    
-
-    
+    public void setOpcNominalNominal(JMenuItem opcNominalNominal) {
+        this.opcNominalNominal = opcNominalNominal;
+    }  
 
 }
