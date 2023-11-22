@@ -81,12 +81,13 @@ public class Facade implements ActionListener {
             objConversionTasas.setTasa(0);
             objConversionTasas.setPeriodo(0);
             objConversionTasas.setTasa(Float.parseFloat(frmNominalEfectiva.getTxtInteres().getText())/100);
-            objConversionTasas.extraerPeriodo1(frmNominalEfectiva.getCmbTasaNominal().getSelectedIndex());
+            objConversionTasas.extraerPeriodo(frmNominalEfectiva.getCmbTasaNominal().getSelectedIndex());
+            objConversionTasas.dividir(frmNominalEfectiva.getCmbTasaNominal().getSelectedIndex());
             if(frmNominalEfectiva.getJcbAnticipadoNominal().isSelected()){
                 System.out.println("Entró 1");
                 objConversionTasas.verificarAnticipada1();
             }
-            objConversionTasas.equivalenciaTasasNominalEfectiva(frmNominalEfectiva.getCmbTasaEfectiva().getSelectedIndex());
+            objConversionTasas.equivalenciaTasas(frmNominalEfectiva.getCmbTasaEfectiva().getSelectedIndex());
             //System.out.println("Tasa: "+objConversionTasas.getTasa()+"\nIndice: "+frmNominalEfectiva.getCmbTasaEfectiva().getSelectedItem()+"\n"+frmNominalEfectiva.getJcbAnticipadoNominal());
             if(frmNominalEfectiva.getJcbAnticipadoEfectivo().isSelected()){
                 System.out.println("Entró 2");
@@ -123,15 +124,13 @@ public class Facade implements ActionListener {
             if(frmEfectivaNominal.getJcbAnticipadoEfectivo().isSelected()){
                 objConversionTasas.verificarAnticipada1();
             }
-            objConversionTasas.extraerPeriodo2(frmEfectivaNominal.getCmbTasaEfectiva().getSelectedIndex());
-            System.out.println("Tasa: "+objConversionTasas.getTasa()+"\nIndice 1: "+frmEfectivaNominal.getCmbTasaEfectiva().getSelectedItem()+"\nIndice 2: "+frmEfectivaNominal.getCmbTasaNominal().getSelectedItem()+"\n"+frmNominalEfectiva.getJcbAnticipadoNominal());
-            objConversionTasas.equivalenciaTasasEfectivaNominal(frmEfectivaNominal.getCmbTasaNominal().getSelectedIndex());
+            objConversionTasas.extraerPeriodo(frmEfectivaNominal.getCmbTasaEfectiva().getSelectedIndex());
+            objConversionTasas.equivalenciaTasas(frmEfectivaNominal.getCmbTasaNominal().getSelectedIndex());
             if(frmEfectivaNominal.getJcbAnticipadoNominal().isSelected()){
                 System.out.println("Entró 2");
                 objConversionTasas.verificarAnticipada2();
-                
             }
-            objConversionTasas.multiplicador(frmEfectivaNominal.getCmbTasaNominal().getSelectedIndex());
+            objConversionTasas.multiplicar(frmEfectivaNominal.getCmbTasaNominal().getSelectedIndex());
             String apellido = ""+frmEfectivaNominal.getCmbTasaNominal().getSelectedItem();
             if(frmEfectivaNominal.getJcbAnticipadoNominal().isSelected()){
                 frmEfectivaNominal.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  N"+apellido.charAt(0)+"a");
@@ -159,24 +158,61 @@ public class Facade implements ActionListener {
             objConversionTasas.setTasa(0);
             objConversionTasas.setPeriodo(0);
             objConversionTasas.setTasa(Float.parseFloat(frmEfectivaEfectiva.getTxtInteres().getText())/100);
-            objConversionTasas.extraerPeriodo2(frmEfectivaEfectiva.getCmbTasaEfectiva1().getSelectedIndex());
+            objConversionTasas.extraerPeriodo(frmEfectivaEfectiva.getCmbTasaEfectiva1().getSelectedIndex());
             if(frmEfectivaEfectiva.getJcbAnticipadoEfectivo1().isSelected()){
                 System.out.println("Entró 1");
                 objConversionTasas.verificarAnticipada1();
             }
-            objConversionTasas.equivalenciaTasasNominalEfectiva(frmNominalEfectiva.getCmbTasaEfectiva().getSelectedIndex());
+            objConversionTasas.equivalenciaTasas(frmEfectivaEfectiva.getCmbTasaEfectiva2().getSelectedIndex());
             //System.out.println("Tasa: "+objConversionTasas.getTasa()+"\nIndice: "+frmNominalEfectiva.getCmbTasaEfectiva().getSelectedItem()+"\n"+frmNominalEfectiva.getJcbAnticipadoNominal());
-            if(frmNominalEfectiva.getJcbAnticipadoEfectivo().isSelected()){
+            if(frmEfectivaEfectiva.getJcbAnticipadoEfectivo2().isSelected()){
                 System.out.println("Entró 2");
                 objConversionTasas.verificarAnticipada2();
             }
-            String apellido = ""+frmNominalEfectiva.getCmbTasaEfectiva().getSelectedItem();
-            if(frmNominalEfectiva.getJcbAnticipadoEfectivo().isSelected()){
-                frmNominalEfectiva.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  E"+apellido.charAt(0)+"a");
+            String apellido = ""+frmEfectivaEfectiva.getCmbTasaEfectiva2().getSelectedItem();
+            if(frmEfectivaEfectiva.getJcbAnticipadoEfectivo2().isSelected()){
+                frmEfectivaEfectiva.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  E"+apellido.charAt(0)+"a");
             }else{
-                frmNominalEfectiva.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  E"+apellido.charAt(0));
+                frmEfectivaEfectiva.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  E"+apellido.charAt(0));
             }
         }
-
+        // Abrir Nominal Nominal
+        if (frmMain.getOpcNominalNominal()== e.getSource()) {
+            frmNominalNominal = new frmNominalNominal();
+            frmMain.getLblBackground().add(frmNominalNominal);
+            frmNominalNominal.setVisible(true);
+            frmNominalNominal.getBtnCalcular().addActionListener(this);
+            frmNominalNominal.getBtnCerrar().addActionListener(this);
+        }
+        // Cerrar Nominal Nominal
+        if (frmNominalNominal.getBtnCerrar() == e.getSource()) {
+            frmNominalNominal.dispose();
+        }
+        // Calculo Nominal Nominal
+        if (frmNominalNominal.getBtnCalcular() == e.getSource()) {
+            if(frmNominalNominal.getTxtInteres().getText().length()<1){
+                JOptionPane.showMessageDialog(frmMain, "No se puede Registrar, no hay datos ingresados");
+            }
+            objConversionTasas.setTasa(0);
+            objConversionTasas.setPeriodo(0);
+            objConversionTasas.setTasa(Float.parseFloat(frmNominalNominal.getTxtInteres().getText())/100);
+            objConversionTasas.extraerPeriodo(frmNominalNominal.getCmbTasaNominal1().getSelectedIndex());
+            objConversionTasas.dividir(frmNominalNominal.getCmbTasaNominal1().getSelectedIndex());
+            if(frmNominalNominal.getJcbAnticipadoNominal1().isSelected()){
+                objConversionTasas.verificarAnticipada1();
+            }
+            objConversionTasas.equivalenciaTasas(frmNominalNominal.getCmbTasaNominal2().getSelectedIndex());
+            if(frmNominalNominal.getJcbAnticipadoNominal2().isSelected()){
+                System.out.println("Entró 2");
+                objConversionTasas.verificarAnticipada2(); 
+            }
+            objConversionTasas.multiplicar(frmNominalNominal.getCmbTasaNominal2().getSelectedIndex());
+            String apellido = ""+frmNominalNominal.getCmbTasaNominal2().getSelectedItem();
+            if(frmNominalNominal.getJcbAnticipadoNominal2().isSelected()){
+                frmNominalNominal.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  N"+apellido.charAt(0)+"a");
+            }else{
+                frmNominalNominal.getLblResultado().setText("Resultado: "+objConversionTasas.getTasa()*100+" %  N"+apellido.charAt(0));
+            }
+        }
     }
 }

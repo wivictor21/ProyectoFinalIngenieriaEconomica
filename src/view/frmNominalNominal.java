@@ -85,7 +85,7 @@ public class frmNominalNominal extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Segunda Tasa Efectiva:");
+        jLabel5.setText("Segunda Tasa Nominal:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));

@@ -38,38 +38,8 @@ public class ConversionTasas {
     public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
-
-    public void extraerPeriodo1(int periodoIndice) {
-        switch (periodoIndice) {
-            case 0:
-                periodo = 12;
-                tasa = tasa / 12;
-                break;
-            case 1:
-                periodo = 6;
-                tasa = tasa / 6;
-                break;
-            case 2:
-                periodo = 4;
-                tasa = tasa / 4;
-                break;
-            case 3:
-                periodo = 3;
-                tasa = tasa / 3;
-                break;
-            case 4:
-                periodo = 2;
-                tasa = tasa / 2;
-                break;
-            case 5:
-                periodo = 1;
-                break;
-            default:
-                periodo = 1;
-                break;
-        }
-    }
-    public void extraerPeriodo2(int periodoIndice) {
+   
+    public void extraerPeriodo(int periodoIndice) {
         switch (periodoIndice) {
             case 0:
                 periodo = 12;
@@ -95,15 +65,7 @@ public class ConversionTasas {
         }
     }
 
-    public void verificarAnticipada1() {
-        tasa = tasa / (1 - tasa);
-    }
-    
-    public void verificarAnticipada2() {
-        tasa = tasa / (1 + tasa);
-    }
-
-    public void equivalenciaTasasNominalEfectiva(int periodoIndice) {
+    public void equivalenciaTasas(int periodoIndice) {
         switch (periodoIndice) {
             case 0:
                 tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 12.0) - 1;
@@ -130,34 +92,30 @@ public class ConversionTasas {
                 break;
         }
     }
-    
-    public void equivalenciaTasasEfectivaNominal(int periodoIndice) {
+        
+    public void dividir(int periodoIndice) {
         switch (periodoIndice) {
             case 0:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 12.0) - 1;
+                tasa = tasa / 12;
                 break;
             case 1:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 6.0) - 1;
+                tasa = tasa / 6;
                 break;
             case 2:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 4.0) - 1;
+                tasa = tasa / 4;
                 break;
             case 3:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 3.0) - 1;
+                tasa = tasa / 3;
                 break;
             case 4:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1.0 / 2.0) - 1;
-                break;
-            case 5:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
+                tasa = tasa / 2;
                 break;
             default:
-                tasa = Math.pow(Math.pow(1 + tasa, periodo), 1) - 1;
                 break;
         }
     }
     
-    public void multiplicador(int periodoIndice){
+    public void multiplicar(int periodoIndice){
         switch (periodoIndice) {
             case 0:
                 tasa = tasa * 12;
@@ -174,12 +132,16 @@ public class ConversionTasas {
             case 4:
                 tasa = tasa * 2;
                 break;
-            case 5:
-                break;
             default:
                 break;
         }
     }
 
+    public void verificarAnticipada1() {
+        tasa = tasa / (1 - tasa);
+    }
     
+    public void verificarAnticipada2() {
+        tasa = tasa / (1 + tasa);
+    }
 }
