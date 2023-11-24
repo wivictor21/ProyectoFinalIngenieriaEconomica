@@ -11,12 +11,12 @@ import javax.swing.JPanel;
  *
  * @author victorhuertas
  */
-public class frmResultado extends javax.swing.JInternalFrame {
+public class frmTabla extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmDosFacesResultado
      */
-    public frmResultado() {
+    public frmTabla() {
         initComponents();
     }
 
@@ -31,16 +31,17 @@ public class frmResultado extends javax.swing.JInternalFrame {
 
         jpnFondo = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tbtTabla = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
+        lblResultado = new javax.swing.JLabel();
 
         jpnFondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tbtTabla.setBackground(new java.awt.Color(255, 255, 255));
+        tbtTabla.setColumns(20);
+        tbtTabla.setRows(5);
+        jScrollPane1.setViewportView(tbtTabla);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -50,30 +51,39 @@ public class frmResultado extends javax.swing.JInternalFrame {
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("Cerrar");
 
+        lblResultado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblResultado.setForeground(new java.awt.Color(0, 0, 0));
+        lblResultado.setText("Resultado:");
+
         javax.swing.GroupLayout jpnFondoLayout = new javax.swing.GroupLayout(jpnFondo);
         jpnFondo.setLayout(jpnFondoLayout);
         jpnFondoLayout.setHorizontalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnFondoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addGap(263, 263, 263))
             .addGroup(jpnFondoLayout.createSequentialGroup()
                 .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel1))
+                        .addGap(51, 51, 51)
+                        .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(255, 255, 255)
-                        .addComponent(btnCerrar)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel1)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jpnFondoLayout.setVerticalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnFondoLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblResultado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrar)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -102,8 +112,9 @@ public class frmResultado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpnFondo;
+    private javax.swing.JLabel lblResultado;
+    private javax.swing.JTextArea tbtTabla;
     // End of variables declaration//GEN-END:variables
 
     public JPanel getJpnFondo() {
