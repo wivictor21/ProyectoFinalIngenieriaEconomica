@@ -5,7 +5,10 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -30,92 +33,129 @@ public class frmTabla extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jpnFondo = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbtTabla = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        btnCerrar = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblTabla = new javax.swing.JTable();
+        btnCerrar = new javax.swing.JButton();
 
-        jpnFondo.setBackground(new java.awt.Color(255, 255, 255));
-
-        tbtTabla.setBackground(new java.awt.Color(255, 255, 255));
-        tbtTabla.setColumns(20);
-        tbtTabla.setRows(5);
-        jScrollPane1.setViewportView(tbtTabla);
+        jpnFondo.setBackground(new java.awt.Color(72, 133, 72));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Resultado");
 
-        btnCerrar.setBackground(new java.awt.Color(0, 0, 0));
-        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setText("Cerrar");
-
         lblResultado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lblResultado.setForeground(new java.awt.Color(0, 0, 0));
+        lblResultado.setForeground(new java.awt.Color(255, 255, 255));
         lblResultado.setText("Resultado:");
+
+        tblTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Número", "Saldo", "Interés", "Cuota", "Anualidad"
+            }
+        ));
+        jScrollPane2.setViewportView(tblTabla);
+
+        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnFondoLayout = new javax.swing.GroupLayout(jpnFondo);
         jpnFondo.setLayout(jpnFondoLayout);
         jpnFondoLayout.setHorizontalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnFondoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCerrar)
-                .addGap(263, 263, 263))
             .addGroup(jpnFondoLayout.createSequentialGroup()
                 .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpnFondoLayout.createSequentialGroup()
+                            .addGap(220, 220, 220)
+                            .addComponent(jLabel1))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnFondoLayout.createSequentialGroup()
+                            .addGap(37, 37, 37)
+                            .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel1)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGap(230, 230, 230)
+                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jpnFondoLayout.setVerticalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnFondoLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblResultado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpnFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jpnFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpnFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jpnFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpnFondo;
     private javax.swing.JLabel lblResultado;
-    private javax.swing.JTextArea tbtTabla;
+    private javax.swing.JTable tblTabla;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnCerrar() {
+        return btnCerrar;
+    }
+
+    public void setBtnCerrar(JButton btnCerrar) {
+        this.btnCerrar = btnCerrar;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
 
     public JPanel getJpnFondo() {
         return jpnFondo;
@@ -125,14 +165,22 @@ public class frmTabla extends javax.swing.JInternalFrame {
         this.jpnFondo = jpnFondo;
     }
 
-    public JButton getBtnCerrar() {
-        return btnCerrar;
+    public JLabel getLblResultado() {
+        return lblResultado;
     }
 
-    public void setBtnCerrar(JButton btnCerrar) {
-        this.btnCerrar = btnCerrar;
+    public void setLblResultado(JLabel lblResultado) {
+        this.lblResultado = lblResultado;
     }
-    
+
+    public JTable getTblTabla() {
+        return tblTabla;
+    }
+
+    public void setTblTabla(JTable tblTabla) {
+        this.tblTabla = tblTabla;
+    }
+
     
 
 

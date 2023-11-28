@@ -47,9 +47,12 @@ public class frmMain extends javax.swing.JFrame {
         opcCapitalizacion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/background.gif"))); // NOI18N
         lblBackground.setAlignmentY(0.0F);
+
+        jMenuBar1.setBorderPainted(false);
 
         opcMetodoSimple.setForeground(new java.awt.Color(0, 0, 0));
         opcMetodoSimple.setText("Conversión de Tasas");
@@ -120,7 +123,7 @@ public class frmMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblBackground)
+            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

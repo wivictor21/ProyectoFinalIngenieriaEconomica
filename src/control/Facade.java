@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import model.Anualidades;
 import model.ConversionTasas;
 import view.frmAmortizacion;
 import view.frmEfectivaEfectiva;
@@ -31,9 +32,10 @@ public class Facade implements ActionListener {
     private frmAmortizacion frmAmortizacion;
     private frmTabla frmTabla;
     private ConversionTasas objConversionTasas;
+    private Anualidades objAnualidades;
     private String apellido;
 
-    public Facade(frmMain frmMain, frmEfectivaNominal frmEfectivaNominal, frmNominalEfectiva frmNominalEfectiva, frmEfectivaEfectiva frmEfectivaEfectiva, frmNominalNominal frmNominalNominal, frmAmortizacion frmAmortizacion, frmTabla frmTabla, ConversionTasas objConversionTasas) {
+    public Facade(frmMain frmMain, frmEfectivaNominal frmEfectivaNominal, frmNominalEfectiva frmNominalEfectiva, frmEfectivaEfectiva frmEfectivaEfectiva, frmNominalNominal frmNominalNominal, frmAmortizacion frmAmortizacion, frmTabla frmTabla, ConversionTasas objConversionTasas, Anualidades objAnualidades) {
         this.frmMain = frmMain;
         this.frmEfectivaNominal = frmEfectivaNominal;
         this.frmNominalEfectiva = frmNominalEfectiva;
@@ -42,6 +44,7 @@ public class Facade implements ActionListener {
         this.frmAmortizacion = frmAmortizacion;
         this.frmTabla = frmTabla;
         this.objConversionTasas = objConversionTasas;
+        this.objAnualidades = objAnualidades;
     }
 
     public Facade() throws IOException {
@@ -53,6 +56,7 @@ public class Facade implements ActionListener {
         this.frmAmortizacion = new frmAmortizacion();
         this.frmTabla = new frmTabla();
         this.objConversionTasas = new ConversionTasas();
+        this.objAnualidades = new Anualidades();
         iniComponentStart();
     }
 
@@ -73,6 +77,12 @@ public class Facade implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Abrir Nominal Efectiva
         if (frmMain.getOpcNominalEfectiva() == e.getSource()) {
+            frmNominalEfectiva.dispose();
+            frmEfectivaNominal.dispose();
+            frmNominalNominal.dispose();
+            frmEfectivaEfectiva.dispose();
+            frmAmortizacion.dispose();
+            frmTabla.dispose();
             frmNominalEfectiva = new frmNominalEfectiva();
             frmMain.getLblBackground().add(frmNominalEfectiva);
             frmNominalEfectiva.setVisible(true);
@@ -102,14 +112,20 @@ public class Facade implements ActionListener {
             }
             apellido = "" + frmNominalEfectiva.getCmbTasaEfectiva().getSelectedItem();
             if (frmNominalEfectiva.getJcbAnticipadoEfectivo().isSelected()) {
-                frmNominalEfectiva.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  E" + apellido.charAt(0) + "a");
+                frmNominalEfectiva.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  E" + apellido.charAt(0) + "a");
             } else {
-                frmNominalEfectiva.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  E" + apellido.charAt(0));
+                frmNominalEfectiva.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  E" + apellido.charAt(0));
             }
         }
 
         // Abrir Efectiva Nominal
         if (frmMain.getOpcEfectivaNominal() == e.getSource()) {
+            frmNominalEfectiva.dispose();
+            frmEfectivaNominal.dispose();
+            frmNominalNominal.dispose();
+            frmEfectivaEfectiva.dispose();
+            frmAmortizacion.dispose();
+            frmTabla.dispose();
             frmEfectivaNominal = new frmEfectivaNominal();
             frmMain.getLblBackground().add(frmEfectivaNominal);
             frmEfectivaNominal.setVisible(true);
@@ -139,13 +155,19 @@ public class Facade implements ActionListener {
             objConversionTasas.multiplicar(frmEfectivaNominal.getCmbTasaNominal().getSelectedIndex());
             apellido = "" + frmEfectivaNominal.getCmbTasaNominal().getSelectedItem();
             if (frmEfectivaNominal.getJcbAnticipadoNominal().isSelected()) {
-                frmEfectivaNominal.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  N" + apellido.charAt(0) + "a");
+                frmEfectivaNominal.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  N" + apellido.charAt(0) + "a");
             } else {
-                frmEfectivaNominal.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  N" + apellido.charAt(0));
+                frmEfectivaNominal.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  N" + apellido.charAt(0));
             }
         }
         // Abrir Efectiva Efectiva
         if (frmMain.getOpcEfectivaEfectiva() == e.getSource()) {
+            frmNominalEfectiva.dispose();
+            frmEfectivaNominal.dispose();
+            frmNominalNominal.dispose();
+            frmEfectivaEfectiva.dispose();
+            frmAmortizacion.dispose();
+            frmTabla.dispose();
             frmEfectivaEfectiva = new frmEfectivaEfectiva();
             frmMain.getLblBackground().add(frmEfectivaEfectiva);
             frmEfectivaEfectiva.setVisible(true);
@@ -174,13 +196,19 @@ public class Facade implements ActionListener {
             }
             apellido = "" + frmEfectivaEfectiva.getCmbTasaEfectiva2().getSelectedItem();
             if (frmEfectivaEfectiva.getJcbAnticipadoEfectivo2().isSelected()) {
-                frmEfectivaEfectiva.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  E" + apellido.charAt(0) + "a");
+                frmEfectivaEfectiva.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  E" + apellido.charAt(0) + "a");
             } else {
-                frmEfectivaEfectiva.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  E" + apellido.charAt(0));
+                frmEfectivaEfectiva.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  E" + apellido.charAt(0));
             }
         }
         // Abrir Nominal Nominal
         if (frmMain.getOpcNominalNominal() == e.getSource()) {
+            frmNominalEfectiva.dispose();
+            frmEfectivaNominal.dispose();
+            frmNominalNominal.dispose();
+            frmEfectivaEfectiva.dispose();
+            frmAmortizacion.dispose();
+            frmTabla.dispose();
             frmNominalNominal = new frmNominalNominal();
             frmMain.getLblBackground().add(frmNominalNominal);
             frmNominalNominal.setVisible(true);
@@ -211,13 +239,19 @@ public class Facade implements ActionListener {
             objConversionTasas.multiplicar(frmNominalNominal.getCmbTasaNominal2().getSelectedIndex());
             apellido = "" + frmNominalNominal.getCmbTasaNominal2().getSelectedItem();
             if (frmNominalNominal.getJcbAnticipadoNominal2().isSelected()) {
-                frmNominalNominal.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  N" + apellido.charAt(0) + "a");
+                frmNominalNominal.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  N" + apellido.charAt(0) + "a");
             } else {
-                frmNominalNominal.getLblResultado().setText("Resultado: " + objConversionTasas.getTasa() * 100 + " %  N" + apellido.charAt(0));
+                frmNominalNominal.getLblResultado().setText("Resultado: " + String.format("%.4f", objConversionTasas.getTasa() * 100) + " %  N" + apellido.charAt(0));
             }
         }
         // Abrir Anualidades
         if (frmMain.getOpcAmortizacion() == e.getSource()) {
+            frmNominalEfectiva.dispose();
+            frmEfectivaNominal.dispose();
+            frmNominalNominal.dispose();
+            frmEfectivaEfectiva.dispose();
+            frmAmortizacion.dispose();
+            frmTabla.dispose();
             frmAmortizacion = new frmAmortizacion();
             frmMain.getLblBackground().add(frmAmortizacion);
             frmAmortizacion.setVisible(true);
@@ -233,7 +267,36 @@ public class Facade implements ActionListener {
             if (frmAmortizacion.getTxtMonto().getText().length() < 1) {
                 JOptionPane.showMessageDialog(frmMain, "No se puede Registrar, no hay datos ingresados");
             }
-                        
+            objAnualidades.setMonto(0);
+            objAnualidades.setNumeroPagos(0);
+            objAnualidades.setInteres(0);
+            objAnualidades.setMonto(Double.parseDouble(frmAmortizacion.getTxtMonto().getText()));
+            objAnualidades.setNumeroPagos(Double.parseDouble(frmAmortizacion.getTxtNumeroPagos().getText()));
+            objAnualidades.setInteres(Double.parseDouble(frmAmortizacion.getTxtInteres().getText()));
+            objAnualidades.transformarInteres(frmAmortizacion.getCmbTipoInteres().getSelectedIndex());
+            if (frmAmortizacion.getJcbTipoPlazo().isSelected()) {
+                objAnualidades.anticipada();
+            }
+            objAnualidades.definirVariables(frmAmortizacion.getCmbPeriodo().getSelectedIndex(), frmAmortizacion.getCmbTipoInteres().getSelectedIndex());
+            objAnualidades.calcularCuota();
+            objAnualidades.construct();
+            objAnualidades.generarTabla();
+
+            //Abrir Tabla
+            frmAmortizacion.setVisible(false);
+            frmAmortizacion.dispose();
+            frmTabla = new frmTabla();
+            frmMain.getLblBackground().add(frmTabla);
+            frmTabla.setVisible(true);
+            frmTabla.getBtnCerrar().addActionListener(this);
+            frmTabla.getTblTabla().setModel(objAnualidades.generarTabla());
+            frmTabla.getLblResultado().setText("Se cancelarán "+objAnualidades.getPeriodo()+" cuotas, cada una por un valor de "+objAnualidades.getCuota());
+
+        }
+        // Cerrar Tabla
+        if (frmTabla.getBtnCerrar() == e.getSource()) {
+            frmTabla.dispose();
+            frmAmortizacion.setVisible(true);
         }
     }
 }
