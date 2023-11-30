@@ -33,7 +33,7 @@ public class frmTabla extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jpnFondo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         lblResultado = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTabla = new javax.swing.JTable();
@@ -41,9 +41,9 @@ public class frmTabla extends javax.swing.JInternalFrame {
 
         jpnFondo.setBackground(new java.awt.Color(72, 133, 72));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Resultado");
+        lblTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Resultado");
 
         lblResultado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblResultado.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,31 +76,30 @@ public class frmTabla extends javax.swing.JInternalFrame {
         jpnFondoLayout.setHorizontalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnFondoLayout.createSequentialGroup()
-                .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jpnFondoLayout.createSequentialGroup()
-                            .addGap(220, 220, 220)
-                            .addComponent(jLabel1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnFondoLayout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addGroup(jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jpnFondoLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                            .addGap(136, 136, 136)
+                            .addComponent(lblTitulo))
+                        .addGroup(jpnFondoLayout.createSequentialGroup()
+                            .addGap(230, 230, 230)
+                            .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jpnFondoLayout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jpnFondoLayout.setVerticalGroup(
             jpnFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnFondoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblResultado)
+                .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblResultado)
+                .addGap(12, 12, 12)
                 .addComponent(btnCerrar)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
@@ -126,10 +125,10 @@ public class frmTabla extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpnFondo;
     private javax.swing.JLabel lblResultado;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblTabla;
     // End of variables declaration//GEN-END:variables
 
@@ -139,14 +138,6 @@ public class frmTabla extends javax.swing.JInternalFrame {
 
     public void setBtnCerrar(JButton btnCerrar) {
         this.btnCerrar = btnCerrar;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
     }
 
     public JScrollPane getjScrollPane2() {
@@ -173,6 +164,14 @@ public class frmTabla extends javax.swing.JInternalFrame {
         this.lblResultado = lblResultado;
     }
 
+    public JLabel getLblTitulo() {
+        return lblTitulo;
+    }
+
+    public void setLblTitulo(JLabel lblTitulo) {
+        this.lblTitulo = lblTitulo;
+    }
+
     public JTable getTblTabla() {
         return tblTabla;
     }
@@ -180,8 +179,4 @@ public class frmTabla extends javax.swing.JInternalFrame {
     public void setTblTabla(JTable tblTabla) {
         this.tblTabla = tblTabla;
     }
-
-    
-
-
 }

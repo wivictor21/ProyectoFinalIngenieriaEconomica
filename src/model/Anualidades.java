@@ -11,39 +11,33 @@ import javax.swing.table.DefaultTableModel;
  * @author victorhuertas
  */
 public class Anualidades {
-
+    private int periodo;
     private double monto;
     private double tasa;
-    private double numeroPagos;
     private double interes;
     private double cuota;
     private double plazo;
-    private double periodo;
     private double aboInteres;
     private double amortizacion;
     private double saldo;
     private double cuotaAux;
 
-    public Anualidades(double monto, double tasa, double numeroPagos, double interes, double cuota, double plazo, double periodo, double aboInteres, double amortizacion, double saldo, double cuotaAux) {
+    public Anualidades(int periodo, double monto, double tasa, double interes, double cuota, double plazo, double aboInteres, double amortizacion, double saldo, double cuotaAux) {
+        this.periodo = periodo;
         this.monto = monto;
         this.tasa = tasa;
-        this.numeroPagos = numeroPagos;
         this.interes = interes;
         this.cuota = cuota;
         this.plazo = plazo;
-        this.periodo = periodo;
         this.aboInteres = aboInteres;
         this.amortizacion = amortizacion;
         this.saldo = saldo;
         this.cuotaAux = cuotaAux;
     }
 
-    
-
     public Anualidades() {
         this.monto = 0;
         this.tasa = 0;
-        this.numeroPagos = 0;
         this.interes = 0;
         this.cuota = 0;
         this.plazo = 0;
@@ -52,6 +46,14 @@ public class Anualidades {
         this.amortizacion = 0;
         this.saldo = 0;
         this.cuotaAux = 0;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
 
     public double getMonto() {
@@ -68,14 +70,6 @@ public class Anualidades {
 
     public void setTasa(double tasa) {
         this.tasa = tasa;
-    }
-
-    public double getNumeroPagos() {
-        return numeroPagos;
-    }
-
-    public void setNumeroPagos(double numeroPagos) {
-        this.numeroPagos = numeroPagos;
     }
 
     public double getInteres() {
@@ -102,14 +96,6 @@ public class Anualidades {
         this.plazo = plazo;
     }
 
-    public double getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(double periodo) {
-        this.periodo = periodo;
-    }
-
     public double getAboInteres() {
         return aboInteres;
     }
@@ -124,6 +110,22 @@ public class Anualidades {
 
     public void setAmortizacion(double amortizacion) {
         this.amortizacion = amortizacion;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getCuotaAux() {
+        return cuotaAux;
+    }
+
+    public void setCuotaAux(double cuotaAux) {
+        this.cuotaAux = cuotaAux;
     }
 
     public void transformarInteres(int indiceInteres) {
@@ -209,14 +211,18 @@ public class Anualidades {
 
     public void conversion(int ele1, int ele2) {
         if (ele1 != ele2) {
-            interes = (Math.pow(interes + 1, (ele2 * (1 / ele1))));
+            interes = decimal(Math.pow(interes + 1, (ele2 * (1.0 / ele1))));
             interes = interes - 1;
 
         }
     }
 
-    public void calcularCuota() {
-        cuota = monto / ((1 - Math.pow((1 + tasa), (plazo * -1))) / tasa);
+    public void calcularCuotaAmortizacion() {
+        cuota = decimal(monto / ((1 - Math.pow((1 + tasa), (plazo * -1))) / tasa));
+    }
+    
+    public void calcularCuotaCapitalizacion() {
+        cuota = decimal(monto / ((Math.pow((1 + tasa), plazo) -1 ) /  tasa));
     }
 
     public void construct() {
@@ -224,157 +230,48 @@ public class Anualidades {
         aboInteres = 0;
         amortizacion = 0;
     }
-
-    public DefaultTableModel generarTabla() {
+  
+    public DefaultTableModel generarTablaAmortizacion() {
         DefaultTableModel plantilla = new DefaultTableModel();
-        /*
-        while (saldo > 0) {
+        plantilla.addColumn("Periodo");
+        plantilla.addColumn("Saldo");
+        plantilla.addColumn("Interés");
+        plantilla.addColumn("Cuota");
+        plantilla.addColumn("Amortización");
+        while (Math.round(saldo) > 0) {
             if (periodo == 0) {
                 cuotaAux = 0;
             } else {
                 cuotaAux = cuota;
             }
-            plantilla.addRow(new Object[]{saldo,aboInteres,cuotaAux,amortizacion});
+            plantilla.addRow(new Object[]{periodo, saldo, aboInteres, cuotaAux, amortizacion});
             periodo++;
-            aboInteres=saldo*tasa;
-            amortizacion=cuota-aboInteres;
-            saldo=saldo-amortizacion;
+            aboInteres = decimal(saldo * tasa);
+            amortizacion = decimal(cuota - aboInteres);
+            saldo = decimal(saldo - amortizacion);
         }
-        */
-        //plantilla.setColumnCount("1","2","3","4","5");
-        plantilla.addRow(new Object[]{1,2,3,4,5});
+        plantilla.addRow(new Object[]{periodo, saldo, aboInteres, cuotaAux, amortizacion});
         return plantilla;
     }
-
+    
+    public DefaultTableModel generarTablaCapitalizacion() {
+        DefaultTableModel plantilla = new DefaultTableModel();
+        plantilla.addColumn("Periodo");
+        plantilla.addColumn("Saldo");
+        plantilla.addColumn("Interés");
+        plantilla.addColumn("Cuota");
+        plantilla.addColumn("Capitalización");
+        while (Math.round(saldo) <= monto) {
+            plantilla.addRow(new Object[]{periodo, saldo, aboInteres, cuota, amortizacion});
+            periodo++;
+            aboInteres = decimal(saldo * tasa);
+            amortizacion = decimal(cuota + aboInteres);
+            saldo = decimal(saldo + amortizacion);
+        }
+        return plantilla;
+    }
+    
+    public double decimal(double val){
+        return Math.round(val * Math.pow(10, 3)) / Math.pow(10, 3);      
+    }
 }
-
-/*
-float cuota;
-    String tasa;
-    float monto;
-    String periodo;
-    String saldo;
-    String aboInteres;
-    String amortizacion;
-    String plazo;
-    String mostrar;
-
-    public void calcularPlazo(String tipo_p) {
-        switch (tipo_p) {
-            case "M":
-                mostrar = "Mensual";
-                break;
-            case "B":
-                mostrar = "Bimestral";
-                break;
-            case "T":
-                mostrar = "Trimestral";
-                break;
-            case "C":
-                mostrar = "Cuatrimestral";
-                break;
-            case "S":
-                mostrar = "Semestral";
-                break;
-            case "A":
-                mostrar = "Anual";
-                break;
-        }
-    }
-
-    public float anticipada(float interes, String tipo_a) {
-        switch (tipo_a) {
-            case "Si":
-                interes = (interes / (1 - interes));
-                break;
-            case "No":
-                break;
-        }
-        return interes;
-    }
-
-    public float transformarInteres(float interes, String tipo, String tipo_a) {
-        if (tipo == "N_M") {
-            interes = interes / 12;
-        } else if (tipo == "N_B") {
-            interes = interes / 6;
-        } else if (tipo == "N_T") {
-            interes = interes / 4;
-        } else if (tipo == "N_C") {
-            interes = interes / 3;
-        } else if (tipo == "N_S") {
-            interes = interes / 2;
-        } else if (tipo == "N_A") {
-            interes = interes / 1;
-        }
-        interes = anticipada(interes, tipo_a);
-        return interes;
-
-    }
-
-    public float transformar_interes(float interes, String tipo, String tipo_a) {
-        if (tipo == "N_M") {
-            interes = interes / 12;
-        } else if (tipo == "N_B") {
-            interes = interes / 6;
-        } else if (tipo == "N_T") {
-            interes = interes / 4;
-        } else if (tipo == "N_C") {
-            interes = interes / 3;
-        } else if (tipo == "N_S") {
-            interes = interes / 2;
-        } else if (tipo == "N_A") {
-            interes = interes / 1;
-        }
-        interes = anticipada(interes, tipo_a);
-        return interes;
-    }
-
-    public float definir_variables(float interes, String tipo_i, String plazo, String tipo_p) {
-
-        if (tipo_p == "M") {
-            ele1 = 12;
-        } else if (tipo_p == "B") {
-            ele1 = 6;
-        } else if (tipo_p == "T") {
-            ele1 = 4;
-        } else if (tipo_p == "C") {
-            ele1 = 3;
-        } else if (tipo_p == "S") {
-            ele1 = 2;
-        } else if (tipo_p == "A") {
-            ele1 = 1;
-        }
-
-        if (tipo_i == "Ef_M" || tipo_i == "N_M") {
-            ele2 = 12;
-        } else if (tipo_i == "Ef_B" || tipo_i == "N_B") {
-            ele2 = 6;
-        } else if (tipo_i == "Ef_T" || tipo_i == "N_T") {
-            ele2 = 4;
-        } else if (tipo_i == "Ef_C" || tipo_i == "N_C") {
-            ele2 = 3;
-        } else if (tipo_i == "Ef_S" || tipo_i == "N_S") {
-            ele2 = 2;
-        } else if (tipo_i == "Ef_A" || tipo_i == "N_A") {
-            ele2 = 1;
-        }
-
-        interes = conversion(interes, ele1, ele2);
-        return interes;
-    }
-
-    public float conversion(float interes, float ele1, float ele2) {
-        if (ele1 != ele2) {
-            interes = (Math.pow(interes + 1, (ele2 * (1 / ele1))));
-            interes = interes - 1;
-
-        }
-        return interes;
-    }
-
-    public void calcularCuota() {
-        cuota = monto / (1 - Math.pow((1 + tasa), (plazo * -1))) / tasa;
-        cuota = cuota.toFixed(2);
-    }
- */

@@ -16,12 +16,12 @@ import javax.swing.JTextField;
  *
  * @author VIctor
  */
-public class frmAmortizacion extends javax.swing.JInternalFrame {
+public class frmCapitalizacion extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form formRegistroEnvio
      */
-    public frmAmortizacion() {
+    public frmCapitalizacion() {
         initComponents();
     }
 
@@ -53,15 +53,15 @@ public class frmAmortizacion extends javax.swing.JInternalFrame {
         txtInteres = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 77));
+        jPanel3.setBackground(new java.awt.Color(143, 48, 59));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Amortización");
+        jLabel1.setText("Capitalización");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Calculadora de Amortización:");
+        jLabel2.setText("Calculadora de Capitalización:");
 
         btnCerrar.setBackground(new java.awt.Color(255, 51, 51));
         btnCerrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -230,7 +230,7 @@ public class frmAmortizacion extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(109, 109, 109)
                         .addComponent(jLabel1)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
