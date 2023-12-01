@@ -57,7 +57,7 @@ public class frmEfectivaEfectiva extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Porcentaje de interes:");
+        jLabel3.setText("Porcentaje de interés:");
 
         txtInteres.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtInteres.addActionListener(new java.awt.event.ActionListener() {

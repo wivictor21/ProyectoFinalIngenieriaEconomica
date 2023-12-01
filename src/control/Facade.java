@@ -327,7 +327,7 @@ public class Facade implements ActionListener {
             }
         } catch (Exception ex) {
             cerrarTodo();
-            JOptionPane.showMessageDialog(frmMain, "Error por favor vuelva a intentarlo");
+            JOptionPane.showMessageDialog(frmMain, "Error, por favor vuelva a intentarlo");
         }
     }
 

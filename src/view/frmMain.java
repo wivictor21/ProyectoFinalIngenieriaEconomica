@@ -102,7 +102,7 @@ public class frmMain extends javax.swing.JFrame {
         });
         opcMetodoGrafico.add(opcAmortizacion);
 
-        opcCapitalizacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opcCapitalizacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opcCapitalizacion.setText("Capitalización");
         opcCapitalizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

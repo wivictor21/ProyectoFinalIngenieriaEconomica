@@ -260,7 +260,7 @@ public class Anualidades {
         plantilla.addColumn("Saldo");
         plantilla.addColumn("Interés");
         plantilla.addColumn("Cuota");
-        plantilla.addColumn("Capitalización");
+        plantilla.addColumn("Incremento");
         while (Math.round(saldo) <= monto) {
             plantilla.addRow(new Object[]{periodo, saldo, aboInteres, cuota, amortizacion});
             periodo++;
